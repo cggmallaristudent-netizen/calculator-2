@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css'
+import './App.css';
 
 function CalcDisplay({ dispValue }) {
   return (
@@ -18,11 +18,15 @@ function CalcButton({ buttonLabel, onClick }) {
 }
 
 function App() {
-  const [disp, setDisp] = useState(0);
+  const [disp, setDisp] = useState("");
+
+  const [operand1, setOperand1] = useState(null);
+  const [operand2, setOperand2] = useState(null);
+  const [operation, setOperation] = useState(null);
 
   const buttonClickHandler = (value) => {
-    setDisp(value);
-  }
+    setDisp((prev) => prev + value);
+  };
 
   return (
     <div className="App">
@@ -37,26 +41,30 @@ function App() {
           <CalcButton buttonLabel={7} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={8} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={9} onClick={buttonClickHandler} />
+
           <CalcButton buttonLabel={"/"} onClick={buttonClickHandler} />
 
           <CalcButton buttonLabel={4} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={5} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={6} onClick={buttonClickHandler} />
+
           <CalcButton buttonLabel={"x"} onClick={buttonClickHandler} />
 
           <CalcButton buttonLabel={1} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={2} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={3} onClick={buttonClickHandler} />
+
           <CalcButton buttonLabel={"-"} onClick={buttonClickHandler} />
 
-          <CalcButton buttonLabel={"CLR"} onClick={buttonClickHandler} />
+          <CalcButton buttonLabel={"C"} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={0} onClick={buttonClickHandler} />
           <CalcButton buttonLabel={"="} onClick={buttonClickHandler} />
+
           <CalcButton buttonLabel={"+"} onClick={buttonClickHandler} />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
