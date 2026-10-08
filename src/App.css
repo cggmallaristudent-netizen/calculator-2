@@ -76,3 +76,9 @@ body {
 .Button:active {
   transform: scale(0.97);
 }
+
+/* Mallari Button */
+
+.Calculator > .Button {
+  margin-top: 14px;
+}
